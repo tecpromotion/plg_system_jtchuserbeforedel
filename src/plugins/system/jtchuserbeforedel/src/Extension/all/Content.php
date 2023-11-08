@@ -21,47 +21,52 @@ use JtChUserBeforeDel\JtChUserBeforeDelInterface;
  */
 class Content implements JtChUserBeforeDelInterface
 {
-    /**
-     * The extensions real name language string.
-     *
-     * @return  string
-     *
-     * @since   1.0.0
-     */
-    public function getExtensionRealNameLanguageString()
-    {
-        return $this->getExtensionBaseContext();
-    }
+	/**
+	 * The extensions real name language string.
+	 *
+	 * @return  string
+	 *
+	 * @since   1.0.0
+	 */
+	public function getExtensionRealNameLanguageString()
+	{
+		return $this->getExtensionBaseContext();
+	}
 
-    /**
-     * The extensions first/base part of the context.
-     *
-     * @return  string
-     *
-     * @since   1.0.0
-     */
-    public function getExtensionBaseContext()
-    {
-        return 'com_content';
-    }
+	/**
+	 * The extensions first/base part of the context.
+	 *
+	 * @return  string
+	 *
+	 * @since   1.0.0
+	 */
+	public function getExtensionBaseContext()
+	{
+		return 'com_content';
+	}
 
-    /**
-     * The database table and columns about the user information to change.
-     *
-     * @return  array
-     *
-     * @since   1.0.0
-     * @see     JtChUserBeforeDelInterface
-     */
-    public function getColumsToChange()
-    {
-        return array(
-            array(
-                'tableName' => '#__content',
-                'uniqueId'  => 'id',
-                'author'    => 'created_by',
-                'alias'     => 'created_by_alias',
-            ),
-        );
-    }
+	/**
+	 * The database table and columns about the user information to change.
+	 *
+	 * @return  array
+	 *
+	 * @since   1.0.0
+	 * @see     JtChUserBeforeDelInterface
+	 */
+	public function getColumsToChange()
+	{
+		return array(
+			array(
+				'tableName' => '#__content',
+				'uniqueId'  => 'id',
+				'author'    => 'created_by',
+				'alias'     => 'created_by_alias',
+			),
+			array(
+				'tableName' => '#__content',
+				'uniqueId'  => 'id',
+				'author'    => 'modyfied_by',
+			),
+		);
+	}
 }
